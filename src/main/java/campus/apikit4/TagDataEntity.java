@@ -2,6 +2,7 @@ package campus.apikit4;
 
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Objects;
 
@@ -20,7 +21,7 @@ public class TagDataEntity {
     private Timestamp when;
     @Basic
     @Column(name = "value", nullable = false, precision = 0)
-    private int value;
+    private BigDecimal value;
 
     public int getId() {
         return id;
@@ -46,11 +47,11 @@ public class TagDataEntity {
         this.when = when;
     }
 
-    public int getValue() {
+    public BigDecimal getValue() {
         return value;
     }
 
-    public void setValue(int value) {
+    public void setValue(BigDecimal value) {
         this.value = value;
     }
 

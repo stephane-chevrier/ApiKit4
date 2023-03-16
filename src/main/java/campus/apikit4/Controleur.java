@@ -1,7 +1,9 @@
 package campus.apikit4;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Nom : Controleur
@@ -16,16 +18,29 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Controleur {
 
+    @Value("${kit4.test.message}")
+    private String testMessage;
 
     // création de l'objet Service
-//    @Autowired
-//    private GameService gameService;
+    @Autowired
+    private ServiceKit4 serviceKit4;
 
     /**
      * requete de test
      */
-    @GetMapping("/test")
-    public String essai() {
-        return "test réussi";
+    @GetMapping("${kit4.test}")
+    public String test() {
+        return testMessage;
+    }
+
+    /**
+     * method de creation d'une partie
+     * @param zoneDtoWeb parametres d'une zone
+     * @return ZoneDtoWeb
+     */
+    @PostMapping("${kit4.zone}")
+    @Transactional
+    public ZoneDtoWeb createZone(@RequestBody ZoneDtoWeb zoneDtoWeb) {
+        return serviceKit4.getZone(serviceKit4.setZone(zoneDtoWeb));
     }
 }
