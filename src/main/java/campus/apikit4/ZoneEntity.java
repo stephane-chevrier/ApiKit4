@@ -42,6 +42,10 @@ public class ZoneEntity {
         this.parentZoneId = parentZoneId;
     }
 
+    public ZoneDtoWeb toDtoWeb(ZoneEntity zoneEntity) {
+        return new ZoneDtoWeb(zoneEntity.getId(), zoneEntity.getLabel(), zoneEntity.getParentZoneId());
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

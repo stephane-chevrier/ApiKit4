@@ -77,6 +77,13 @@
             <version>8.0.32</version>
         </dependency>
 
+        <!-- Dependance permettant l'utilisation des annotations liees a la validation des donnees -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+            <version>3.0.4</version>
+        </dependency>
+
         <!-- traduit les objets LogRecord en leur équivalent SLF4J. -->
         <!-- Licence libre MIT -->
         <dependency>

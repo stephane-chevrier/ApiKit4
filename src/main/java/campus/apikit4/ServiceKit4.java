@@ -2,7 +2,11 @@ package campus.apikit4;
 
 public interface ServiceKit4 {
 
-    public ZoneDtoWeb getZone(ZoneEntity zoneEntity);
+    ZoneDtoWeb getZoneById(int zoneId);
 
-    public ZoneEntity setZone(ZoneDtoWeb zoneDtoWeb);
+    ZoneDtoWeb createZone(ZoneDtoWeb zoneDtoWeb);
+
+    TagDtoWeb createTag(TagDtoWeb tagDtoWeb);
+
+    TagDtoWeb getTagById(int zoneId);
 }
